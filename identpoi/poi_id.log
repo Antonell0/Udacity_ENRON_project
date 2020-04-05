@@ -1,3 +1,131 @@
 INFO:poi_id:Start of the script
-INFO:poi_id:The number of people contained in the dataset is:146
-INFO:poi_id:The number of features for each person is:21
+INFO:poi_id:The number of people contained in the dataset is: 146
+INFO:poi_id:The number of features for each person is: 21
+INFO:poi_id:The number of POI contained in the dataset is : 18
+INFO:poi_id:LOWRY CHARLES P will be eliminated from the dataset. POI status: False
+INFO:poi_id:CHAN RONNIE will be eliminated from the dataset. POI status: False
+INFO:poi_id:WODRASKA JOHN will be eliminated from the dataset. POI status: False
+INFO:poi_id:URQUHART JOHN A will be eliminated from the dataset. POI status: False
+INFO:poi_id:WHALEY DAVID A will be eliminated from the dataset. POI status: False
+INFO:poi_id:MENDELSOHN JOHN will be eliminated from the dataset. POI status: False
+INFO:poi_id:CLINE KENNETH W will be eliminated from the dataset. POI status: False
+INFO:poi_id:WAKEHAM JOHN will be eliminated from the dataset. POI status: False
+INFO:poi_id:WROBEL BRUCE will be eliminated from the dataset. POI status: False
+INFO:poi_id:MEYER JEROME J will be eliminated from the dataset. POI status: False
+INFO:poi_id:SCRIMSHAW MATTHEW will be eliminated from the dataset. POI status: False
+INFO:poi_id:GATHMANN WILLIAM D will be eliminated from the dataset. POI status: False
+INFO:poi_id:GILLIS JOHN will be eliminated from the dataset. POI status: False
+INFO:poi_id:LOCKHART EUGENE E will be eliminated from the dataset. POI status: False
+INFO:poi_id:PEREIRA PAULO V. FERRAZ will be eliminated from the dataset. POI status: False
+INFO:poi_id:BLAKE JR. NORMAN P will be eliminated from the dataset. POI status: False
+INFO:poi_id:THE TRAVEL AGENCY IN THE PARK will be eliminated from the dataset. POI status: False
+INFO:poi_id:CHRISTODOULOU DIOMEDES will be eliminated from the dataset. POI status: False
+INFO:poi_id:WINOKUR JR. HERBERT S will be eliminated from the dataset. POI status: False
+INFO:poi_id:YEAP SOON will be eliminated from the dataset. POI status: False
+INFO:poi_id:FUGH JOHN L will be eliminated from the dataset. POI status: False
+INFO:poi_id:SAVAGE FRANK will be eliminated from the dataset. POI status: False
+INFO:poi_id:GRAMM WENDY L will be eliminated from the dataset. POI status: False
+INFO:poi_id:TOTAL is the person with the max salary: 26704229
+INFO:poi_id:BANNANTINE JAMES M is the person with the min salary: 477
+INFO:poi_id:TOTAL is the person with the max deferral_payments: 32083396
+INFO:poi_id:BELFER ROBERT is the person with the min deferral_payments: -102500
+INFO:poi_id:TOTAL is the person with the max total_payments: 309886585
+INFO:poi_id:HAUG DAVID L is the person with the min total_payments: 475
+INFO:poi_id:TOTAL is the person with the max loan_advances: 83925000
+INFO:poi_id:PICKERING MARK R is the person with the min loan_advances: 400000
+INFO:poi_id:TOTAL is the person with the max bonus: 97343619
+INFO:poi_id:DODSON KEITH is the person with the min bonus: 70000
+INFO:poi_id:BHATNAGAR SANJAY is the person with the max restricted_stock_deferred: 15456290
+INFO:poi_id:TOTAL is the person with the min restricted_stock_deferred: -7576788
+INFO:poi_id:BOWEN JR RAYMOND M is the person with the max deferred_income: -833
+INFO:poi_id:TOTAL is the person with the min deferred_income: -27992891
+INFO:poi_id:TOTAL is the person with the max total_stock_value: 434509511
+INFO:poi_id:BELFER ROBERT is the person with the min total_stock_value: -44093
+INFO:poi_id:TOTAL is the person with the max expenses: 5235198
+INFO:poi_id:HAUG DAVID L is the person with the min expenses: 475
+INFO:poi_id:TOTAL is the person with the max exercised_stock_options: 311764000
+INFO:poi_id:BELFER ROBERT is the person with the min exercised_stock_options: 3285
+INFO:poi_id:TOTAL is the person with the max other: 42667589
+INFO:poi_id:WALLS JR ROBERT H is the person with the min other: 2
+INFO:poi_id:TOTAL is the person with the max long_term_incentive: 48521928
+INFO:poi_id:HICKERSON GARY J is the person with the min long_term_incentive: 69223
+INFO:poi_id:TOTAL is the person with the max restricted_stock: 130322299
+INFO:poi_id:BHATNAGAR SANJAY is the person with the min restricted_stock: -2604490
+INFO:poi_id:TOTAL is the person with the max director_fees: 1398517
+INFO:poi_id:BELFER ROBERT is the person with the min director_fees: 3285
+INFO:poi_id:SHAPIRO RICHARD S is the person with the max to_messages: 15149
+INFO:poi_id:FOY JOE is the person with the min to_messages: 57
+INFO:poi_id:METTS MARK is the person with the max email_address: mark.metts@enron.com
+INFO:poi_id:METTS MARK is the person with the min email_address: mark.metts@enron.com
+INFO:poi_id:LAVORATO JOHN J is the person with the max from_poi_to_this_person: 528
+INFO:poi_id:MEYER ROCKFORD G is the person with the min from_poi_to_this_person: 0
+INFO:poi_id:KAMINSKI WINCENTY J is the person with the max from_messages: 14368
+INFO:poi_id:CORDES WILLIAM R is the person with the min from_messages: 12
+INFO:poi_id:DELAINEY DAVID W is the person with the max from_this_person_to_poi: 609
+INFO:poi_id:CORDES WILLIAM R is the person with the min from_this_person_to_poi: 0
+INFO:poi_id:BELDEN TIMOTHY N is the person with the max shared_receipt_with_poi: 5521
+INFO:poi_id:FOY JOE is the person with the min shared_receipt_with_poi: 2
+INFO:poi_id:WALTERS GARETH W is the person with the max count: 15
+INFO:poi_id:LAY KENNETH L is the person with the min count: 2
+INFO:poi_id:Testing of the different models
+INFO:poi_id:Model: <class 'sklearn.svm.classes.SVC'>
+INFO:poi_id:done in 7.005s
+INFO:poi_id:Model: <class 'sklearn.tree.tree.DecisionTreeClassifier'>
+INFO:poi_id:done in 14.884s
+INFO:poi_id:Model: <class 'sklearn.neighbors.classification.KNeighborsClassifier'>
+INFO:poi_id:done in 18.156s
+INFO:poi_id:Model: <class 'sklearn.svm.classes.SVC'>
+INFO:poi_id:The confusion matrix is: [[19  4]
+ [ 2  0]]
+INFO:poi_id:The classification report is:
+INFO:poi_id:              precision    recall  f1-score   support
+
+         0.0       0.90      0.83      0.86        23
+         1.0       0.00      0.00      0.00         2
+
+   micro avg       0.76      0.76      0.76        25
+   macro avg       0.45      0.41      0.43        25
+weighted avg       0.83      0.76      0.79        25
+
+INFO:poi_id:The parameters chosen are: {'clf__gamma': 'scale', 'pca__n_components': 10, 'clf__C': 1000, 'clf__kernel': 'sigmoid'}
+INFO:poi_id:Model: <class 'sklearn.tree.tree.DecisionTreeClassifier'>
+INFO:poi_id:The confusion matrix is: [[19  4]
+ [ 2  0]]
+INFO:poi_id:The classification report is:
+INFO:poi_id:              precision    recall  f1-score   support
+
+         0.0       0.90      0.83      0.86        23
+         1.0       0.00      0.00      0.00         2
+
+   micro avg       0.76      0.76      0.76        25
+   macro avg       0.45      0.41      0.43        25
+weighted avg       0.83      0.76      0.79        25
+
+INFO:poi_id:The parameters chosen are: {'clf__criterion': 'gini', 'clf__max_depth': None, 'pca__n_components': 12, 'clf__min_samples_split': 2}
+INFO:poi_id:Model: <class 'sklearn.neighbors.classification.KNeighborsClassifier'>
+INFO:poi_id:The confusion matrix is: [[22  1]
+ [ 2  0]]
+INFO:poi_id:The classification report is:
+INFO:poi_id:              precision    recall  f1-score   support
+
+         0.0       0.92      0.96      0.94        23
+         1.0       0.00      0.00      0.00         2
+
+   micro avg       0.88      0.88      0.88        25
+   macro avg       0.46      0.48      0.47        25
+weighted avg       0.84      0.88      0.86        25
+
+INFO:poi_id:The parameters chosen are: {'clf__weights': 'distance', 'clf__algorithm': 'kd_tree', 'pca__n_components': 12, 'clf__n_neighbors': 3}
+INFO:poi_id:Model: <class 'sklearn.neighbors.classification.KNeighborsClassifier'>
+INFO:poi_id:The confusion matrix is: [[19  4]
+ [ 2  0]]
+INFO:poi_id:The classification report is:
+INFO:poi_id:              precision    recall  f1-score   support
+
+         0.0       0.90      0.83      0.86        23
+         1.0       0.00      0.00      0.00         2
+
+   micro avg       0.76      0.76      0.76        25
+   macro avg       0.45      0.41      0.43        25
+weighted avg       0.83      0.76      0.79        25
+

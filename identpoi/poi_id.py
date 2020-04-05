@@ -46,8 +46,8 @@ with open(dataset, 'rb') as file:
     data_dict = pickle.load(file)
 
 # Initial exploration
-logger.info("The number of people contained in the dataset is:" + str(len(data_dict.keys())))
-logger.info("The number of features for each person is:" + str(len(data_dict['METTS MARK'].keys())))
+logger.info("The number of people contained in the dataset is: " + str(len(data_dict.keys())))
+logger.info("The number of features for each person is: " + str(len(data_dict['METTS MARK'].keys())))
 
 #Number of POI
 poi = 0
@@ -55,7 +55,7 @@ for person in data_dict.keys():
     if data_dict[person]["poi"] == 1:
         poi += 1
 
-logger.info("The number of POI contained in the dataset is: {poi}")
+logger.info("The number of POI contained in the dataset is : " + str(poi))
 
 
 # Identifying the people with a lot of data missing to eliminate them from the dataset
@@ -94,7 +94,7 @@ fig.savefig('missing_values.png')
 
 # Elimination of the people with a lot of data missing. Verification that no POI is being eliminated
 for person in low_data_ppl:
-    logger.info(f"{person} will be eliminated from the dataset. POI status: {data_dict[person]['poi']}")
+    logger.info("%s will be eliminated from the dataset. POI status: %s", person, data_dict[person]['poi'])
     data_dict.pop(person)
 
 # Identification of the people with extreme of the features to find more outliers
@@ -107,8 +107,8 @@ for feature in financial_features + email_features + ["count"]:
     max_value = data_dict[key_max][feature]
     min_value = data_dict[key_min][feature]
 
-    logger.info(f"{key_max} is the person with the max {feature}: {max_value} ")
-    logger.info(f"{key_min} is the person with the min {feature}: {min_value}")
+    logger.info("%s is the person with the max %s: %s", key_max, feature, max_value)
+    logger.info("%s is the person with the min %s: %s", key_min, feature, min_value)
 
 
 """Task 2: Remove outliers"""
@@ -139,10 +139,9 @@ def plot_features_scatter(data, features_list, x, y, z):
         y_values.append(point[y_feat])
         z_values.append(point[z_feat])
     fig, ax = plt.subplots()
-    scatter = ax.scatter(x_values, y_values, c=z_values, label=['non POI', 'POI'], cmap='cool')
-    legend1 = ax.legend(*scatter.legend_elements(num=1),
-                        loc="upper left", title="POI")
-    ax.add_artist(legend1)
+    scatter = ax.scatter(x_values, y_values, c=z_values, cmap='cool')
+    #legend1 = ax.legend(*scatter.legend_elements(num=1), loc="upper left", title="POI")
+    #ax.add_artist(legend1)
     plt.xlabel(x)
     plt.ylabel(y)
     filename = x + '_' + y + '_' + z + '_scatter.png'
@@ -168,26 +167,26 @@ for person in my_dataset.keys():
             my_dataset[person]["from_this_person_to_poi"] != "NaN" and \
             my_dataset[person]["from_poi_to_this_person"] != "NaN":
         my_dataset[person]["interaction_POI"] = \
-            (my_dataset[person]["from_this_person_to_poi"] + my_dataset[person]["from_poi_to_this_person"]) / \
+            1.0 * (my_dataset[person]["from_this_person_to_poi"] + my_dataset[person]["from_poi_to_this_person"]) / \
             (my_dataset[person]["from_messages"] + my_dataset[person]["to_messages"])
         my_dataset[person]["ratio_from_POI"] = \
-            my_dataset[person]["from_poi_to_this_person"] / my_dataset[person]["from_messages"]
+            1.0 * my_dataset[person]["from_poi_to_this_person"] / my_dataset[person]["from_messages"]
         my_dataset[person]["ratio_to_POI"] = \
-            my_dataset[person]["from_this_person_to_poi"] / my_dataset[person]["from_messages"]
+            1.0 * my_dataset[person]["from_this_person_to_poi"] / my_dataset[person]["from_messages"]
     else:
-        my_dataset[person]["interaction_POI"] = "NaN"
-        my_dataset[person]["ratio_from_POI"] = "NaN"
-        my_dataset[person]["ratio_to_POI"] = "NaN"
+        my_dataset[person]['interaction_POI'] = 'NaN'
+        my_dataset[person]['ratio_from_POI'] = 'NaN'
+        my_dataset[person]['ratio_to_POI'] = 'NaN'
 
 # Extract features and labels from dataset for local testing
-features_list.append("interaction_POI")
+features_list.append('interaction_POI')
 features_list.append('ratio_from_POI')
 features_list.append('ratio_to_POI')
 
 data = featureFormat(my_dataset, features_list, sort_keys=True)
 
 x = 'ratio_from_POI'
-y = "ratio_to_POI"
+y = 'ratio_to_POI'
 z = 'poi'
 plot_features_scatter(data, features_list, x, y, z)
 
@@ -205,7 +204,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.decomposition import PCA
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-from sklearn.model_selection import StratifiedShuffleSplit, GridSearchCV, train_test_split
+from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
@@ -216,7 +215,7 @@ features = np.array(features)
 labels = np.array(labels)
 
 features_train, features_test, labels_train, labels_test = \
-    train_test_split(features, labels, test_size=0.2)
+    train_test_split(features, labels, test_size=0.2, random_state=42)
 
 # As the labels are very unbalanced StratifiedShuffleSplit was used to separate train and test. Only 1 split was created.
 #sss = StratifiedShuffleSplit(n_splits=200, test_size=0.2)
