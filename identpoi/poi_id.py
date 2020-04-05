@@ -1,5 +1,5 @@
 
-# !/usr/bin/env python3
+# !/usr/bin/env python2
 
 import sys
 import pickle
@@ -11,7 +11,7 @@ from time import time
 sys.path.append("../tools/")
 
 from feature_format import featureFormat, targetFeatureSplit
-from identpoi.tester import dump_classifier_and_data
+from tester import dump_classifier_and_data
 import logging
 
 # create logger with 'poi_id'
@@ -46,8 +46,8 @@ with open(dataset, 'rb') as file:
     data_dict = pickle.load(file)
 
 # Initial exploration
-logger.info(f"The number of people contained in the dataset is: {len(data_dict.keys())}")
-logger.info(f"The number of features for each person is: {len(data_dict['METTS MARK'].keys())}")
+logger.info("The number of people contained in the dataset is:" + str(len(data_dict.keys())))
+logger.info("The number of features for each person is:" + str(len(data_dict['METTS MARK'].keys())))
 
 #Number of POI
 poi = 0
@@ -55,7 +55,7 @@ for person in data_dict.keys():
     if data_dict[person]["poi"] == 1:
         poi += 1
 
-logger.info(f"The number of POI contained in the dataset is: {poi}")
+logger.info("The number of POI contained in the dataset is: {poi}")
 
 
 # Identifying the people with a lot of data missing to eliminate them from the dataset
