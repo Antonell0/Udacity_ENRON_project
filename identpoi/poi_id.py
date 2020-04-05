@@ -204,7 +204,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.decomposition import PCA
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-from sklearn.model_selection import GridSearchCV, train_test_split
+from sklearn.model_selection import GridSearchCV, train_test_split, StratifiedShuffleSplit
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
@@ -214,17 +214,15 @@ from sklearn.preprocessing import StandardScaler
 features = np.array(features)
 labels = np.array(labels)
 
-features_train, features_test, labels_train, labels_test = \
-    train_test_split(features, labels, test_size=0.2, random_state=42)
+#features_train, features_test, labels_train, labels_test = \
+#    train_test_split(features, labels, test_size=0.2, random_state=42)
 
 # As the labels are very unbalanced StratifiedShuffleSplit was used to separate train and test. Only 1 split was created.
-#sss = StratifiedShuffleSplit(n_splits=200, test_size=0.2)
+sss = StratifiedShuffleSplit(n_splits=50, test_size=0.2, random_state=42)
 
-#for train_index, test_index in sss.split(features, labels):
-#    features_train, features_test = features[train_index], features[test_index]
-#    labels_train, labels_test = labels[train_index], labels[test_index]
-# features_train, features_test, labels_train, labels_test = \
-#     train_test_split(features, labels, test_size=0.3)
+for train_index, test_index in sss.split(features, labels):
+    features_train, features_test = features[train_index], features[test_index]
+    labels_train, labels_test = labels[train_index], labels[test_index]
 
 # Param space definition for the PCA and the different models
 param_space = {
@@ -272,7 +270,7 @@ for Model in models_to_test:
         ('clf', Model()),
     ])
     parameters = param_space[Model]
-    clf = GridSearchCV(pipe, parameters, scoring='f1', n_jobs=-1, cv=50, verbose=0)
+    clf = GridSearchCV(pipe, parameters, scoring='f1', n_jobs=-1, cv=sss, verbose=0)
     clf.fit(features_train, labels_train)
 
     labels_pred = clf.predict(features_test)

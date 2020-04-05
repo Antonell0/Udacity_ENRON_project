@@ -99,8 +99,15 @@ algorithm has to be a scaling of the features. It was decided to use the Standar
 used for the model. A PCA on all the features was performed instead in order to reduce the size of the model losing as
 little information as possible.
 - Classifier: As requested 3 classifier have been tried. SVM, Decision Tree and KNeighborsClassifier.
- 
+
+Parameter tuning
+It is not time to choose the hyper-parameters and train the model with the training set. Each classifier has a set of parameters that
+can be chosen. The choice of these parameters along with the training set are the key for a good model.
+In order to try different combination of the hyper-parameters GridSearchCV will be used.
+
+
 To concatenate the 3 steps a pipeline has been used and the parameter exploration has been performed with GridSearchCV.
+
 
 The considered parameter space is:
 ```python
@@ -132,19 +139,25 @@ param_space = {
 }
 ```
 
-The samples have been separated in the train (80% of the samples) and the test (20% of the samples) sets. The test set
- has not been used at all in the training of the model. In order to avoid overfitting as much as possible the 
- cross-validation has been used amongst the GridSearchCV parameters.
+The samples have been separated in the train (80% of the samples) and the test (20% of the samples) sets. Due to the fact that the 
+2 classes are very imbalanced StratifiedShuffleSplit is used to create training and test sets. The cross-validation has 
+been used in the training set amongst the GridSearchCV parameters.
 
 Validate and Evaluate
 -------
 
-The different classifiers have been evaluated in terms of accuracy and recall, and the one having the best score with
+The different classifiers have been evaluated in terms of precision and recall, and the one having the best score with
 the parameters used was the SVM.
 
-The complete pipeline has been saved and passed alog the dataset and the feature list to the tester.
+The precision is defined as the ratio between the true positives and the total number of positive predictions. The recall
+is defined as the ratio between the true positives and the sum of true positives and false negatives.
+The recall is important in this case because for the poi identification it would be good to have as less false negatives
+as possible keeping a good precision.
+
+The complete pipeline has been saved and passed along the dataset and the feature list to the tester. The tester will re-train
+and check the precision and recall metrics. 
 The results obtained with the tester are:
 
-	Accuracy: 0.81177	Precision: 0.38941	Recall: 0.39350	F1: 0.39144	F2: 0.39268
-	Total predictions: 13000	True positives:  787	False positives: 1234	False negatives: 1213	True negatives: 9766
+    Accuracy: 0.79385	Precision: 0.33716	Recall: 0.35200	F1: 0.34442	F2: 0.34893
+	Total predictions: 13000	True positives:  704	False positives: 1384	False negatives: 1296	True negatives: 9616
 

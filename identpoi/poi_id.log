@@ -69,63 +69,63 @@ INFO:poi_id:WALTERS GARETH W is the person with the max count: 15
 INFO:poi_id:LAY KENNETH L is the person with the min count: 2
 INFO:poi_id:Testing of the different models
 INFO:poi_id:Model: <class 'sklearn.svm.classes.SVC'>
-INFO:poi_id:done in 7.005s
+INFO:poi_id:done in 7.373s
 INFO:poi_id:Model: <class 'sklearn.tree.tree.DecisionTreeClassifier'>
-INFO:poi_id:done in 14.884s
+INFO:poi_id:done in 14.871s
 INFO:poi_id:Model: <class 'sklearn.neighbors.classification.KNeighborsClassifier'>
-INFO:poi_id:done in 18.156s
+INFO:poi_id:done in 17.864s
 INFO:poi_id:Model: <class 'sklearn.svm.classes.SVC'>
-INFO:poi_id:The confusion matrix is: [[19  4]
- [ 2  0]]
+INFO:poi_id:The confusion matrix is: [[20  1]
+ [ 2  2]]
 INFO:poi_id:The classification report is:
 INFO:poi_id:              precision    recall  f1-score   support
 
-         0.0       0.90      0.83      0.86        23
-         1.0       0.00      0.00      0.00         2
-
-   micro avg       0.76      0.76      0.76        25
-   macro avg       0.45      0.41      0.43        25
-weighted avg       0.83      0.76      0.79        25
-
-INFO:poi_id:The parameters chosen are: {'clf__gamma': 'scale', 'pca__n_components': 10, 'clf__C': 1000, 'clf__kernel': 'sigmoid'}
-INFO:poi_id:Model: <class 'sklearn.tree.tree.DecisionTreeClassifier'>
-INFO:poi_id:The confusion matrix is: [[19  4]
- [ 2  0]]
-INFO:poi_id:The classification report is:
-INFO:poi_id:              precision    recall  f1-score   support
-
-         0.0       0.90      0.83      0.86        23
-         1.0       0.00      0.00      0.00         2
-
-   micro avg       0.76      0.76      0.76        25
-   macro avg       0.45      0.41      0.43        25
-weighted avg       0.83      0.76      0.79        25
-
-INFO:poi_id:The parameters chosen are: {'clf__criterion': 'gini', 'clf__max_depth': None, 'pca__n_components': 12, 'clf__min_samples_split': 2}
-INFO:poi_id:Model: <class 'sklearn.neighbors.classification.KNeighborsClassifier'>
-INFO:poi_id:The confusion matrix is: [[22  1]
- [ 2  0]]
-INFO:poi_id:The classification report is:
-INFO:poi_id:              precision    recall  f1-score   support
-
-         0.0       0.92      0.96      0.94        23
-         1.0       0.00      0.00      0.00         2
+         0.0       0.91      0.95      0.93        21
+         1.0       0.67      0.50      0.57         4
 
    micro avg       0.88      0.88      0.88        25
-   macro avg       0.46      0.48      0.47        25
-weighted avg       0.84      0.88      0.86        25
+   macro avg       0.79      0.73      0.75        25
+weighted avg       0.87      0.88      0.87        25
 
-INFO:poi_id:The parameters chosen are: {'clf__weights': 'distance', 'clf__algorithm': 'kd_tree', 'pca__n_components': 12, 'clf__n_neighbors': 3}
-INFO:poi_id:Model: <class 'sklearn.neighbors.classification.KNeighborsClassifier'>
-INFO:poi_id:The confusion matrix is: [[19  4]
- [ 2  0]]
+INFO:poi_id:The parameters chosen are: {'clf__gamma': 'scale', 'pca__n_components': 12, 'clf__C': 1000, 'clf__kernel': 'sigmoid'}
+INFO:poi_id:Model: <class 'sklearn.tree.tree.DecisionTreeClassifier'>
+INFO:poi_id:The confusion matrix is: [[20  1]
+ [ 4  0]]
 INFO:poi_id:The classification report is:
 INFO:poi_id:              precision    recall  f1-score   support
 
-         0.0       0.90      0.83      0.86        23
-         1.0       0.00      0.00      0.00         2
+         0.0       0.83      0.95      0.89        21
+         1.0       0.00      0.00      0.00         4
 
-   micro avg       0.76      0.76      0.76        25
-   macro avg       0.45      0.41      0.43        25
-weighted avg       0.83      0.76      0.79        25
+   micro avg       0.80      0.80      0.80        25
+   macro avg       0.42      0.48      0.44        25
+weighted avg       0.70      0.80      0.75        25
+
+INFO:poi_id:The parameters chosen are: {'clf__criterion': 'gini', 'clf__max_depth': 5, 'pca__n_components': 12, 'clf__min_samples_split': 6}
+INFO:poi_id:Model: <class 'sklearn.neighbors.classification.KNeighborsClassifier'>
+INFO:poi_id:The confusion matrix is: [[21  0]
+ [ 4  0]]
+INFO:poi_id:The classification report is:
+INFO:poi_id:              precision    recall  f1-score   support
+
+         0.0       0.84      1.00      0.91        21
+         1.0       0.00      0.00      0.00         4
+
+   micro avg       0.84      0.84      0.84        25
+   macro avg       0.42      0.50      0.46        25
+weighted avg       0.71      0.84      0.77        25
+
+INFO:poi_id:The parameters chosen are: {'clf__weights': 'distance', 'clf__algorithm': 'kd_tree', 'pca__n_components': 10, 'clf__n_neighbors': 2}
+INFO:poi_id:Model: <class 'sklearn.neighbors.classification.KNeighborsClassifier'>
+INFO:poi_id:The confusion matrix is: [[20  1]
+ [ 2  2]]
+INFO:poi_id:The classification report is:
+INFO:poi_id:              precision    recall  f1-score   support
+
+         0.0       0.91      0.95      0.93        21
+         1.0       0.67      0.50      0.57         4
+
+   micro avg       0.88      0.88      0.88        25
+   macro avg       0.79      0.73      0.75        25
+weighted avg       0.87      0.88      0.87        25
 
