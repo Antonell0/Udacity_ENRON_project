@@ -140,8 +140,15 @@ param_space = {
 ```
 
 The samples have been separated in the train (80% of the samples) and the test (20% of the samples) sets. Due to the fact that the 
-2 classes are very imbalanced StratifiedShuffleSplit is used to create training and test sets. The cross-validation has 
-been used in the training set amongst the GridSearchCV parameters.
+2 classes are very imbalanced StratifiedShuffleSplit is used to create training and test sets.
+Herebelow, a figure summarizing how Stratified Shuffle Split work for different classes, picking up for both the training
+and the testing set samples from both classes.
+![SSS](identpoi/StratifiedShuflleSplit.jpeg)
+ 
+ 
+The cross-validation has been used in the training set amongst the GridSearchCV parameters.
+
+
 
 Validate and Evaluate
 -------
