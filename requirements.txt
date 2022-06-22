@@ -6,7 +6,7 @@ functools32==3.2.3.post2
 futures==3.3.0
 kiwisolver==1.1.0
 matplotlib==2.2.5
-numpy==1.15.4
+numpy==1.22.0
 pyparsing==2.4.6
 python-dateutil==2.8.1
 pytz==2019.3
